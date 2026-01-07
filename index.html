@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz App</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <div class="brand">
+          <div class="logo" aria-hidden="true">Q</div>
+          <div class="brand-text">
+            <div class="brand-title">Quiz App</div>
+            <div class="brand-subtitle">One question at a time • Instant scoring</div>
+          </div>
+        </div>
+      </header>
+
+      <main class="container" id="app" aria-live="polite">
+        <!-- Start Screen -->
+        <section class="card" id="startScreen">
+          <h1 class="h1">Ready to test yourself?</h1>
+          <p class="muted">
+            You’ll get <strong>one question at a time</strong>. Choose an option and move to the
+            next question. Your score will be shown at the end.
+          </p>
+          <ul class="features">
+            <li><span class="dot"></span>5+ multiple-choice questions</li>
+            <li><span class="dot"></span>Single selection with highlighted choice</li>
+            <li><span class="dot"></span>Score calculation & final results</li>
+          </ul>
+          <div class="actions">
+            <button class="btn btn-primary" id="startBtn" type="button">Start Quiz</button>
+          </div>
+        </section>
+
+        <!-- Quiz Screen -->
+        <section class="card hidden" id="quizScreen">
+          <div class="quiz-header">
+            <div class="progress">
+              <div class="progress-top">
+                <div class="progress-label" id="progressLabel">Question 1 of 5</div>
+                <div class="progress-meta" id="progressMeta">0 answered</div>
+              </div>
+              <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100">
+                <div class="progress-fill" id="progressFill"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="question-block">
+            <div class="pill" id="categoryPill">General</div>
+            <h2 class="h2" id="questionText">Question text</h2>
+          </div>
+
+          <div class="options" id="options" role="radiogroup" aria-label="Answer options">
+            <!-- options inserted by JS -->
+          </div>
+
+          <div class="footer">
+            <div class="hint" id="hintText">Select one option to enable Next.</div>
+            <div class="footer-actions">
+              <button class="btn btn-secondary" id="restartBtn" type="button" title="Restart quiz">
+                Restart
+              </button>
+              <button class="btn btn-primary" id="nextBtn" type="button" disabled>
+                Next
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <!-- Results Screen -->
+        <section class="card hidden" id="resultScreen">
+          <h2 class="h1">Your Results</h2>
+          <p class="muted" id="resultSummary">You scored X out of Y.</p>
+
+          <div class="score-card" aria-label="Score details">
+            <div class="score-main">
+              <div class="score-number" id="scoreNumber">0</div>
+              <div class="score-out-of" id="scoreOutOf">/ 0</div>
+            </div>
+            <div class="score-meta" id="scoreMeta">0% correct</div>
+          </div>
+
+          <div class="actions">
+            <button class="btn btn-primary" id="playAgainBtn" type="button">Play Again</button>
+          </div>
+        </section>
+      </main>
+
+      <footer class="bottombar">
+        <div class="muted small">Tip: You can use keyboard arrows/Tab + Enter to select options.</div>
+      </footer>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
+
+
